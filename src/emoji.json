@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Grinning Face",
+    "image": "https://www.dictionary.com/e/wp-content/uploads/2018/02/grinning-face-with-smiling-eyes.png"
+  },
+  {
+    "id": 2,
+    "name": "Slightly Smiling Face",
+    "image": "https://i.pinimg.com/originals/cc/1c/78/cc1c78d3351ec2d146985cf2d32ebb70.png"
+  },
+  {
+    "id": 3,
+    "name": "Face with tears of joy",
+    "image": "https://image.shutterstock.com/image-illustration/emoji-yellow-face-lol-laugh-260nw-669849526.jpg"
+  }
+]
