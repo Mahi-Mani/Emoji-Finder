@@ -13,5 +13,15 @@
     "id": 3,
     "name": "Face with tears of joy",
     "image": "https://image.shutterstock.com/image-illustration/emoji-yellow-face-lol-laugh-260nw-669849526.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Sad",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/711NDQNFqxL._SY355_.png"
+  },
+  {
+    "id": 5,
+    "name": "Angry",
+    "image": "https://i.pinimg.com/originals/c2/0a/22/c20a2221cc2eda66004be6e80a704bd5.png"
   }
 ]

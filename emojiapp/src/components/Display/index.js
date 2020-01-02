@@ -3,15 +3,18 @@ import emoji from "../../emoji.json";
 
 function Display(props) {
     console.log(props);
-    console.log("Hello");
-    // for(var i=0; i<emoji.length; i++){
-
-    // }
+    const Style = {
+        width: "18rem"
+    }
 
     return (
         <div>
-            <img src={props.emoji.image} alt={props.search}></img>
+            <br></br>
+            <div className="card" style={Style}>
+                <img src={props.emoji.image} alt={props.search} className="card-img-top"></img>
+            </div>
         </div>
+
     )
 }
 
