@@ -8,8 +8,17 @@ class SearchBar extends Component {
         searchValue: ""
     }
 
+    componentDidMount = () => {
+        this.setState({
+            show: true
+        })
+    }
+
     handleInputChange = event => {
         event.preventDefault();
+        this.setState({
+            show: false
+        })
         // console.log(event.target);
         const { name, value } = event.target;
         this.setState({
@@ -21,7 +30,7 @@ class SearchBar extends Component {
             let nameLowerCase = name.toLowerCase();
             let searchValueLowerCase = this.state.searchValue.toLowerCase();
 
-            if(nameLowerCase.includes(searchValueLowerCase)){
+            if (nameLowerCase.includes(searchValueLowerCase)) {
                 console.log(`The value matches to true`);
                 console.log(icon.name);
 
@@ -47,29 +56,29 @@ class SearchBar extends Component {
         // }
     }
 
-    handleEvent = event => {
-        event.preventDefault();
-        console.log("inside submit button function");
+    // handleEvent = event => {
+    //     event.preventDefault();
+    //     console.log("inside submit button function");
 
-        for (let i = 0; i < emoji.length; i++) {
-            let searchValueLowerCase = this.state.searchValue.toLowerCase();
-            let emojiNameLowerCase = emoji[i].name.toLowerCase();
+    //     for (let i = 0; i < emoji.length; i++) {
+    //         let searchValueLowerCase = this.state.searchValue.toLowerCase();
+    //         let emojiNameLowerCase = emoji[i].name.toLowerCase();
 
-            if (searchValueLowerCase === emojiNameLowerCase) {
-                console.log("Found");
+    //         if (searchValueLowerCase === emojiNameLowerCase) {
+    //             console.log("Found");
 
-                this.setState({
-                    render: !this.state.render,
-                    emoji: emoji[i]
-                })
-            }
-            // else {
-            //     console.log("Not found");
-            //     this.setState({ render: !this.state.render,
-            //     emoji: emoji[3] })
-            // }
-        }
-    }
+    //             this.setState({
+    //                 render: !this.state.render,
+    //                 emoji: emoji[i]
+    //             })
+    //         }
+    //         // else {
+    //         //     console.log("Not found");
+    //         //     this.setState({ render: !this.state.render,
+    //         //     emoji: emoji[3] })
+    //         // }
+    //     }
+    // }
 
     render() {
         return (
@@ -81,18 +90,20 @@ class SearchBar extends Component {
                             name="searchValue"
                             value={this.state.searchValue} onChange={this.handleInputChange}
                         ></input>
-                        <button className="btn btn-outline-success my-2 my-sm-0"
-                            type="submit"
-                            onClick={this.handleEvent}
-                        >Search</button><br></br><br></br><br></br><br></br>
-                        {this.state.render &&
-                            <Display
-                                search={this.state.searchValue}
-                                emoji={this.state.emoji}
-                            />}
+
+
                         <br></br><br></br><br></br><br></br>
                     </form>
                 </nav>
+                {this.state.render &&
+                    <DisplayList>
+                        <DisplayListItem
+                            key={this.state.emoji.id}
+                            name={this.state.emoji.name}
+                            image={this.state.emoji.image}
+                        />
+                        </DisplayList>}
+                {this.state.show &&       
                 <DisplayList>
                     {emoji.map(icon => (
                         <DisplayListItem
@@ -101,21 +112,20 @@ class SearchBar extends Component {
                             image={icon.image}
                         />
                     ))}
-                </DisplayList>
-                {this.state.render &&
-                            <DisplayList>
-                                <DisplayListItem
-                                    key={this.state.emoji.id}
-                                    name={this.state.emoji.name}
-                                    image={this.state.emoji.image}
-                                />
-}
-                        </DisplayList>}
+                </DisplayList>}
             </div>
         )
     }
 }
-
+// {/* <button className="btn btn-outline-success my-2 my-sm-0"
+//                             type="submit"
+//                             onClick={this.handleEvent}
+//                         >Search</button><br></br><br></br><br></br><br></br>
+//                         {this.state.render &&
+//                             <Display
+//                                 search={this.state.searchValue}
+//                                 emoji={this.state.emoji}
+//                             />} */}
 
 
 export default SearchBar;
