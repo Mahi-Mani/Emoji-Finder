@@ -15,22 +15,25 @@ class SearchBar extends Component {
     }
 
     handleInputChange = event => {
-        event.preventDefault();
+        // event.preventDefault();
         this.setState({
             show: false
         })
         // console.log(event.target);
         const { name, value } = event.target;
+        console.log(` before setting state ${value} `);
         this.setState({
             [name]: value
         })
+        console.log(` after setting state ${this.state.searchValue} `);
 
         emoji.map(icon => {
             let name = icon.name;
             let nameLowerCase = name.toLowerCase();
             let searchValueLowerCase = this.state.searchValue.toLowerCase();
+            let check = nameLowerCase.includes(searchValueLowerCase);
 
-            if (nameLowerCase.includes(searchValueLowerCase)) {
+            if (check) {
                 console.log(`The value matches to true`);
                 console.log(icon.name);
 
@@ -38,7 +41,10 @@ class SearchBar extends Component {
                     render: !this.state.render,
                     emoji: icon
                 })
+                console.log(this.state.emoji);
             }
+            else
+                check = false;
         })
 
         // for (let i = 0; i < emoji.length; i++) {
@@ -102,17 +108,17 @@ class SearchBar extends Component {
                             name={this.state.emoji.name}
                             image={this.state.emoji.image}
                         />
-                        </DisplayList>}
-                {this.state.show &&       
-                <DisplayList>
-                    {emoji.map(icon => (
-                        <DisplayListItem
-                            key={icon.id}
-                            name={icon.name}
-                            image={icon.image}
-                        />
-                    ))}
-                </DisplayList>}
+                    </DisplayList>}
+                {this.state.show &&
+                    <DisplayList>
+                        {emoji.map(icon => (
+                            <DisplayListItem
+                                key={icon.id}
+                                name={icon.name}
+                                image={icon.image}
+                            />
+                        ))}
+                    </DisplayList>}
             </div>
         )
     }
