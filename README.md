@@ -1,4 +1,4 @@
-# Pokemon
+# Emoji Finder
 
 ## Summary
 This is a simple search application exclusively for emoticons.  One could search for an emoji from list of emoticons
