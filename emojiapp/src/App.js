@@ -8,16 +8,16 @@ class App extends Component {
 
 
 
-render() {
+  render() {
     return (
-        <div>
-            <Nav />
-            <SearchBar />
-            {/* <Footer /> */}
-        </div>
+      <div>
+        <Nav />
+        <SearchBar />
+        {/* <Footer /> */}
+      </div>
 
     )
-}
+  }
 }
 
 export default App;
