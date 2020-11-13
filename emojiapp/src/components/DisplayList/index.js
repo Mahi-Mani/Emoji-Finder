@@ -1,5 +1,4 @@
 import React from "react";
-import emoji from "../../emoji.json";
 
 export function DisplayList({ children }) {
   return <ul className="list-group">{children}</ul>;
