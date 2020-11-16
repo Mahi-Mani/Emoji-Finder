@@ -7,7 +7,7 @@ export function DisplayList({ children }) {
 export function DisplayListItem(props) {
   return (
     <div>
-      <li className="list-group-item">
+      <li className="list-group-item" onClick={props.handleShow}>
         {props.image}{" "}{props.name}</li>
     </div>
   )

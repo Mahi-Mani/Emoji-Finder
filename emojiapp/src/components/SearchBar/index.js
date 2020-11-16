@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import API from "../utils/API";
+import API from "../../utils/API";
 import { DisplayList, DisplayListItem } from "../DisplayList";
 import Loading from "../Loading";
+import { Modal, Button } from "react-bootstrap";
 
 class SearchBar extends Component {
   state = {
     searchValue: "",
     emojis: [],
     hasFetched: false,
-    filteredSearch: []
+    filteredSearch: [],
+    show: false
   }
 
   componentDidMount = () => {
@@ -42,6 +44,18 @@ class SearchBar extends Component {
     });
   }
 
+  handleShow = () => {
+    this.setState({
+      show: true
+    });
+  }
+
+  handleClose = () => {
+    this.setState({
+      show: false
+    });
+  }
+
   render() {
     return (
       <div>
@@ -64,9 +78,10 @@ class SearchBar extends Component {
                   {this.state.emojis.map((icon, index) => (
                     <DisplayListItem
                       key={index}
-                      name={icon.slug}
+                      name={icon.unicodeName}
                       image={icon.character}
-                      hello={"all"}
+                      handleShow={this.handleShow}
+                      show={this.state.show}
                     />
                   ))}
                 </DisplayList>
@@ -77,7 +92,8 @@ class SearchBar extends Component {
                       key={index}
                       name={icon.slug}
                       image={icon.character}
-                      hello={"filter"}
+                      handleShow={this.handleShow}
+                      show={this.state.show}
                     />
                   ))}
                 </DisplayList>
@@ -86,6 +102,20 @@ class SearchBar extends Component {
           :
           <Loading />
         }
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={this.handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     )
   }

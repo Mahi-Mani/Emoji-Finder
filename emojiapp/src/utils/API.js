@@ -1,4 +1,3 @@
-import emoji from "../../emoji.json";
 import axios from "axios";
 
 export default {
