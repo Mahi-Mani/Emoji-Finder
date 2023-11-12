@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://mahi-mani.github.io/Emoji-Finder/",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^1.6.0",
     "bootstrap": "^4.5.3",
     "gh-pages": "^2.1.1",
     "react": "^16.12.0",
